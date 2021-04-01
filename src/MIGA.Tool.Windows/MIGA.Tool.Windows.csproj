@@ -1,0 +1,884 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{221FB0E1-56C0-499C-82F3-BA4060D6ED0C}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MIGA.Tool.Windows</RootNamespace>
+    <AssemblyName>MIGA.Tool.Windows</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;JETBRAINS_ANNOTATIONS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Alienlab.NetExtensions, Version=1.0.8.0, Culture=neutral, PublicKeyToken=b4f6771b076f5394, processorArchitecture=MSIL">
+      <HintPath>..\packages\Alienlab.NetExtensions.1.0.8\lib\Alienlab.NetExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ControlzEx, Version=2.0.1.61, Culture=neutral, PublicKeyToken=f08b075e934b7045, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.2.0.1.61\lib\net45\ControlzEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Fluent, Version=4.0.3.394, Culture=neutral, PublicKeyToken=3e436e32a8c5546f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fluent.Ribbon.4.0.3.394\lib\net45\Fluent.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.Reduced.1.9.1.8\lib\net20\Ionic.Zip.Reduced.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=11.1.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.11.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.PersistenceChannel, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PersistenceChannel.1.2.3\lib\net45\Microsoft.ApplicationInsights.PersistenceChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Web.Administration, Version=7.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Administration.7.0.0.0\lib\net20\Microsoft.Web.Administration.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.XmlTransform, Version=2.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Xdt.2.1.1\lib\net40\Microsoft.Web.XmlTransform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Diagnostics.Base, Version=2.0.1.171, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Diagnostics.Base.2.0.1.171\lib\Sitecore.Diagnostics.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Diagnostics.FileSystem, Version=2.0.1.171, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Diagnostics.FileSystem.2.0.1.171\lib\Sitecore.Diagnostics.FileSystem.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Diagnostics.InfoService.Client.Core, Version=2.0.1.171, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Diagnostics.InfoService.Client.Core.2.0.1.171\lib\Sitecore.Diagnostics.InfoService.Client.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Diagnostics.Logging, Version=2.0.1.171, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Diagnostics.Logging.2.0.1.171\lib\Sitecore.Diagnostics.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Diagnostics.Net, Version=2.0.1.171, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Diagnostics.Net.2.0.1.171\lib\Sitecore.Diagnostics.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Diagnostics.Objects, Version=2.0.1.171, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Diagnostics.Objects.2.0.1.171\lib\Sitecore.Diagnostics.Objects.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\ControlzEx.2.0.1.61\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="TaskDialog, Version=1.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WPFTaskDialog.1.7.1\lib\net40-Client\TaskDialog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ButtonDefinition.cs" />
+    <Compile Include="ButtonsConfiguration.cs" />
+    <Compile Include="CustomConverters\CustomGroupVisibilityConverter.cs" />
+    <Compile Include="CustomConverters\CustomButtonVisibilityConverter.cs" />
+    <Compile Include="CustomConverters\CustomButtonEnabledConverter.cs" />
+    <Compile Include="Dialogs\AddSolrDialog.xaml.cs">
+      <DependentUpon>AddSolrDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DatabaseQueryExecutionDialog.xaml.cs">
+      <DependentUpon>DatabaseQueryExecutionDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DatabasesDialog.xaml.cs">
+      <DependentUpon>DatabasesDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\DatabasesOperationsDialog.xaml.cs">
+      <DependentUpon>DatabasesOperationsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ContainerVariablesEditor.xaml.cs">
+      <DependentUpon>ContainerVariablesEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\GridEditor.xaml.cs">
+      <DependentUpon>GridEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\GridEditorContext.cs" />
+    <Compile Include="Dialogs\RestoreDatabaseDialog.xaml.cs">
+      <DependentUpon>RestoreDatabaseDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GroupDefinition.cs" />
+    <Compile Include="MainWindowComponents\Buttons\AboutButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\AbstractInstanceButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\AppStateButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\BrowseSitecoreContainerWebsiteButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\BrowseHomePageButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\CreateSupportHotfixButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\InstanceDummyButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\LogFilesButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenContainerFolderButton.cs" />
+    <Compile Include="MainWindowComponents\Groups\AppsGroup.cs" />
+    <Compile Include="MainWindowComponents\Groups\BackupGroup.cs" />
+    <Compile Include="MainWindowComponents\Groups\FileSystemGroup.cs" />
+    <Compile Include="MainWindowComponents\Groups\InstallGroup.cs" />
+    <Compile Include="MainWindowComponents\Groups\InstanceOnlyGroup.cs" />
+    <Compile Include="MainWindowComponents\Buttons\AbstractSimpleButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\AttachDebuggerButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\AttachReportingDatabaseButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\AttachReportingSecondaryDatabaseButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\BackupInstanceButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\BrowseButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\CleanupInstanceButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ClearDatabasesButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ClearEventQueueButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ClearPropertiesButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\CollectMemoryDumpButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ConfigBuilderButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ControlAppPoolButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\CopyMarketingDefinitionTablesButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\CreateSupportPatchButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\DatabaseManagerButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\DeleteInstanceButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\Download8Button.cs" />
+    <Compile Include="MainWindowComponents\Buttons\AbstractDownloadAndRunButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ExportInstanceButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ExtraActionsButton.cs" />
+    <Compile Include="MainWindowComponents\Groups\ManageGroup.cs" />
+    <Compile Include="MainWindowComponents\Groups\PageGroup.cs" />
+    <Compile Include="MainWindowComponents\Groups\WindowOnlyGroup.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ImportInstanceButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\Install9InstanceButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\InstallInstanceButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\InstallModulesButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\InstallMongoDb.cs" />
+    <Compile Include="MainWindowComponents\Buttons\InstallSolrButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\KillAllButThisButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenSimFolderButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\SitecoreMemberOpenFolderButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\LoginAdminButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ManagedArgsTracerButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\MultipleDeletionButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenCurrentLogButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenFileButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenFolderButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenHostsButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenLogsButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenSSPGButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenToolboxButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenVisualStudioButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\OpenWebConfigButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\PublishButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\RecycleAllButThisButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\RefreshButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ReinstallInstanceButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\ReplaceReportingDatabaseWithSecondaryButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\RestoreInstanceButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\SettingsButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\UpdateLicenseButton.cs" />
+    <Compile Include="MainWindowComponents\Buttons\InstallContainerButton.cs" />
+    <Compile Include="MainWindowComponents\MainWindowButtonFactory.cs" />
+    <Compile Include="MainWindowData.cs" />
+    <Compile Include="Pipelines\Download8\Download8Args.cs" />
+    <Compile Include="Pipelines\Download8\DownloadProcessor.cs" />
+    <Compile Include="Pipelines\FinishActions.cs" />
+    <Compile Include="Pipelines\Install\FinishActions.cs" />
+    <Compile Include="Pipelines\Install\Install9ActionsHive.cs" />
+    <Compile Include="Pipelines\Install\InstallActions.cs" />
+    <Compile Include="Pipelines\Install\InstallModulesActions.cs" />
+    <Compile Include="Pipelines\Install\InstallModulesFinishActionHive.cs" />
+    <Compile Include="Pipelines\Install\OpenScriptsFolderFinishAction.cs" />
+    <Compile Include="Pipelines\Setup\SetupProcessor.cs" />
+    <Compile Include="Pipelines\Setup\SetupWizardArgs.cs" />
+    <Compile Include="Pipelines\Solr\AddSolrToSimConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="PublishMode.cs" />
+    <Compile Include="SaveAgreement.cs" />
+    <Compile Include="StateToVisibility.cs" />
+    <Compile Include="TabDefinition.cs" />
+    <Compile Include="TreeViewItemExtensions.cs" />
+    <Compile Include="UserControls\Backup\BackupSettings.xaml.cs">
+      <DependentUpon>BackupSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Backup\BackupSettingsWizardArgs.cs" />
+    <Compile Include="UserControls\Backup\ChooseBackup.xaml.cs">
+      <DependentUpon>ChooseBackup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ConfirmStepUserControl.xaml.cs">
+      <DependentUpon>ConfirmStepUserControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Delete\Containers\DeleteDetails.xaml.cs">
+      <DependentUpon>DeleteDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Delete\Delete9Details.xaml.cs">
+      <DependentUpon>Delete9Details.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Download8\Downloads.xaml.cs">
+      <DependentUpon>Downloads.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Download8\DownloadWizardArgs.xaml.cs" />
+    <Compile Include="UserControls\Download8\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Download8\ProductDownload8InCheckbox.cs" />
+    <Compile Include="UserControls\Export\ExportDatabases.xaml.cs">
+      <DependentUpon>ExportDatabases.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Export\ExportFile.xaml.cs">
+      <DependentUpon>ExportFile.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Export\ExportWizardArgs.cs" />
+    <Compile Include="UserControls\Export\FinishActions.cs" />
+    <Compile Include="UserControls\Helpers\InstallTasksHelper.cs" />
+    <Compile Include="UserControls\Import\ImportWebsite.xaml.cs">
+      <DependentUpon>ImportWebsite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Import\ImportWizardArgs.cs" />
+    <Compile Include="UserControls\Import\SetWebsiteBindings.xaml.cs">
+      <DependentUpon>SetWebsiteBindings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Containers\ContainerDetails.xaml.cs">
+      <DependentUpon>ContainerDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Containers\SelectTag.xaml.cs">
+      <DependentUpon>SelectTag.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Instance9Details.xaml.cs">
+      <DependentUpon>Instance9Details.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Instance9Validation.xaml.cs">
+      <DependentUpon>Instance9Validation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Instance9SelectTasks.xaml.cs">
+      <DependentUpon>Instance9SelectTasks.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\InstanceRole9.xaml.cs">
+      <DependentUpon>InstanceRole9.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\InstanceRole.xaml.cs">
+      <DependentUpon>InstanceRole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\InstanceSettings.xaml.cs">
+      <DependentUpon>InstanceSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\InstanceDetails.xaml.cs">
+      <DependentUpon>InstanceDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Modules\ConfigurationPackages.xaml.cs">
+      <DependentUpon>ConfigurationPackages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Modules\FilePackages.xaml.cs">
+      <DependentUpon>FilePackages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Modules\ModulesDetails.xaml.cs">
+      <DependentUpon>ModulesDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Modules\ProductInCheckbox.cs" />
+    <Compile Include="UserControls\Install\Modules\ReorderPackages.xaml.cs">
+      <DependentUpon>ReorderPackages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\ParametersEditor\Install9ParametersEditor.xaml.cs">
+      <DependentUpon>Install9ParametersEditor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Validation\ValidationDetails.xaml.cs">
+      <DependentUpon>ValidationDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Install\Validation\ValidationStatsItem.cs" />
+    <Compile Include="UserControls\MultipleDeletion\MultipleDeletionWizardArgs.cs" />
+    <Compile Include="UserControls\MultipleDeletion\SelectInstances.xaml.cs">
+      <DependentUpon>SelectInstances.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Reinstall\Containers\ReinstallDetails.xaml.cs">
+      <DependentUpon>ReinstallDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Reinstall\Reinstall9Confirmation.xaml.cs">
+      <DependentUpon>Reinstall9Confirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Setup\ConnectionString.xaml.cs">
+      <DependentUpon>ConnectionString.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Setup\InstancesRoot.xaml.cs">
+      <DependentUpon>InstancesRoot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Setup\LocalRepository.xaml.cs">
+      <DependentUpon>LocalRepository.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Setup\Permissions.xaml.cs">
+      <DependentUpon>Permissions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AboutDialog.xaml.cs">
+      <DependentUpon>AboutDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\AdvancedSettingsDialog.xaml.cs">
+      <DependentUpon>AdvancedSettingsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\ConnectionStringDialog.xaml.cs">
+      <DependentUpon>ConnectionStringDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\SettingsDialog.xaml.cs">
+      <DependentUpon>SettingsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindowHelper.cs" />
+    <Compile Include="Dialogs\HostsDialog.xaml.cs">
+      <DependentUpon>HostsDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Solr\SolrDetails.xaml.cs">
+      <DependentUpon>SolrDetails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowsSettings.cs" />
+    <Compile Include="WizardPipelinesConfig.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="logview.zip" />
+    <EmbeddedResource Include="ManagedArgsTracer.zip" />
+    <EmbeddedResource Include="ManagedGcAwareDump.zip" />
+    <EmbeddedResource Include="MongoDb.WindowsService.Installer.zip" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <Resource Include="Images\16\astrologer.png" />
+    <Resource Include="Images\16\chrome.png" />
+    <Resource Include="Images\16\delete.png" />
+    <Resource Include="Images\16\earth2.png" />
+    <Resource Include="Images\16\folder_document2.png" />
+    <Resource Include="Images\16\history2.png" />
+    <Resource Include="Images\16\package_edit.png" />
+    <Resource Include="Images\16\scroll_refresh.png" />
+    <Resource Include="Images\16\Windows Table.png" />
+    <Resource Include="Images\16\zoom_vertical.png" />
+    <Resource Include="Images\24\add_domain.png" />
+    <Resource Include="Images\24\astrologer.png" />
+    <Resource Include="Images\24\box_into.png" />
+    <Resource Include="Images\24\box_out.png" />
+    <Resource Include="Images\24\chrome.png" />
+    <Resource Include="Images\24\cloud_download.png" />
+    <Resource Include="Images\24\console.png" />
+    <Resource Include="Images\24\copy.png" />
+    <Resource Include="Images\24\cpu.png" />
+    <Resource Include="Images\24\data.png" />
+    <Resource Include="Images\24\data_copy.png" />
+    <Resource Include="Images\24\delete.png" />
+    <Resource Include="Images\24\document_gear.png" />
+    <Resource Include="Images\24\document_text.png" />
+    <Resource Include="Images\24\download.png" />
+    <Resource Include="Images\24\earth2.png" />
+    <Resource Include="Images\24\floppy_disks.png" />
+    <Resource Include="Images\24\folders.png" />
+    <Resource Include="Images\24\folder_document2.png" />
+    <Resource Include="Images\24\folder_network.png" />
+    <Resource Include="Images\24\folder_open.png" />
+    <Resource Include="Images\24\folder_window.png" />
+    <Resource Include="Images\24\garbage.png" />
+    <Resource Include="Images\24\gearwheels.png" />
+    <Resource Include="Images\24\history2.png" />
+    <Resource Include="Images\24\install.png" />
+    <Resource Include="Images\24\log_in.png" />
+    <Resource Include="Images\24\log_out.png" />
+    <Resource Include="Images\24\media_play.png" />
+    <Resource Include="Images\24\media_stop.png" />
+    <Resource Include="Images\24\modem_earth.png" />
+    <Resource Include="Images\24\navigate_check.png" />
+    <Resource Include="Images\24\package_edit.png" />
+    <Resource Include="Images\24\Paint.png" />
+    <Resource Include="Images\24\Pencil.png" />
+    <Resource Include="Images\24\publish.png" />
+    <Resource Include="Images\24\redo.png" />
+    <Resource Include="Images\24\scroll_refresh.png" />
+    <Resource Include="Images\24\Sitecore.png" />
+    <Resource Include="Images\24\Startpage.png" />
+    <Resource Include="Images\24\toolbox.png" />
+    <Resource Include="Images\24\uninstall.png" />
+    <Resource Include="Images\24\upload.png" />
+    <Resource Include="Images\24\Windows Table.png" />
+    <Resource Include="Images\24\wrench.png" />
+    <Resource Include="Images\24\zoom_vertical.png" />
+    <Resource Include="Images\32\earth2.png" />
+    <Resource Include="Images\32\folder_document2.png" />
+    <Resource Include="Images\32\history2.png" />
+    <Resource Include="Images\32\navigate_check.png" />
+    <Resource Include="Images\32\Windows Table.png" />
+    <Resource Include="Images\48\earth2.png" />
+    <Resource Include="Images\48\folder_document2.png" />
+    <Resource Include="Images\48\history2.png" />
+    <Resource Include="Images\48\navigate_check.png" />
+    <Resource Include="Images\48\Windows Table.png" />
+    <Resource Include="Images\24\refresh.png" />
+    <Resource Include="Images\16\vs.png" />
+    <Resource Include="Images\24\vs.png" />
+    <Resource Include="Images\32\vs.png" />
+    <Resource Include="Images\48\vs.png" />
+    <Resource Include="Images\16\atom2.png" />
+    <Resource Include="Images\24\atom2.png" />
+    <Resource Include="Images\32\atom2.png" />
+    <Resource Include="Images\48\atom2.png" />
+    <Resource Include="Images\48\new_package.png" />
+    <Resource Include="Images\32\new_package.png" />
+    <Resource Include="Images\24\new_package.png" />
+    <Resource Include="Images\16\new_package.png" />
+    <Resource Include="Images\16\add_domain.png" />
+    <Resource Include="Images\16\box_into.png" />
+    <Resource Include="Images\16\box_out.png" />
+    <Resource Include="Images\16\cloud_download.png" />
+    <Resource Include="Images\16\console.png" />
+    <Resource Include="Images\16\copy.png" />
+    <Resource Include="Images\16\cpu.png" />
+    <Resource Include="Images\16\data.png" />
+    <Resource Include="Images\16\data_copy.png" />
+    <Resource Include="Images\16\document_gear.png" />
+    <Resource Include="Images\16\document_text.png" />
+    <Resource Include="Images\16\download.png" />
+    <Resource Include="Images\16\firefox.png" />
+    <Resource Include="Images\16\floppy_disks.png" />
+    <Resource Include="Images\16\folders.png" />
+    <Resource Include="Images\16\folder_network.png" />
+    <Resource Include="Images\16\folder_open.png" />
+    <Resource Include="Images\16\folder_window.png" />
+    <Resource Include="Images\16\garbage.png" />
+    <Resource Include="Images\16\gearwheels.png" />
+    <Resource Include="Images\16\ie.png" />
+    <Resource Include="Images\16\install.png" />
+    <Resource Include="Images\16\log_in.png" />
+    <Resource Include="Images\16\log_out.png" />
+    <Resource Include="Images\16\media_play.png" />
+    <Resource Include="Images\16\media_stop.png" />
+    <Resource Include="Images\16\modem_earth.png" />
+    <Resource Include="Images\16\navigate_check.png" />
+    <Resource Include="Images\16\note_information.png" />
+    <Resource Include="Images\16\note_warning.png" />
+    <Resource Include="Images\16\Paint.png" />
+    <Resource Include="Images\16\Pencil.png" />
+    <Resource Include="Images\16\publish.png" />
+    <Resource Include="Images\16\redo.png" />
+    <Resource Include="Images\16\refresh.png" />
+    <Resource Include="Images\16\safari.png" />
+    <Resource Include="Images\16\sitecore.png" />
+    <Resource Include="Images\16\splitter_hor_b_d.png" />
+    <Resource Include="Images\16\Startpage.png" />
+    <Resource Include="Images\16\toolbox.png" />
+    <Resource Include="Images\16\uninstall.png" />
+    <Resource Include="Images\16\upload.png" />
+    <Resource Include="Images\16\wrench.png" />
+    <Resource Include="Images\24\firefox.png" />
+    <Resource Include="Images\24\ie.png" />
+    <Resource Include="Images\24\safari.png" />
+    <Resource Include="Images\24\view.png" />
+    <Resource Include="Images\32\add_domain.png" />
+    <Resource Include="Images\32\astrologer.png" />
+    <Resource Include="Images\32\box_into.png" />
+    <Resource Include="Images\32\box_out.png" />
+    <Resource Include="Images\32\chrome.png" />
+    <Resource Include="Images\32\cloud_download.png" />
+    <Resource Include="Images\32\console.png" />
+    <Resource Include="Images\32\copy.png" />
+    <Resource Include="Images\32\cpu.png" />
+    <Resource Include="Images\32\data.png" />
+    <Resource Include="Images\32\data_copy.png" />
+    <Resource Include="Images\32\delete.png" />
+    <Resource Include="Images\32\document_gear.png" />
+    <Resource Include="Images\32\document_text.png" />
+    <Resource Include="Images\32\download.png" />
+    <Resource Include="Images\32\firefox.png" />
+    <Resource Include="Images\32\floppy_disks.png" />
+    <Resource Include="Images\32\folders.png" />
+    <Resource Include="Images\32\folder_network.png" />
+    <Resource Include="Images\32\folder_open.png" />
+    <Resource Include="Images\32\folder_window.png" />
+    <Resource Include="Images\32\garbage.png" />
+    <Resource Include="Images\32\gearwheels.png" />
+    <Resource Include="Images\32\ie.png" />
+    <Resource Include="Images\32\install.png" />
+    <Resource Include="Images\32\log_in.png" />
+    <Resource Include="Images\32\log_out.png" />
+    <Resource Include="Images\32\media_play.png" />
+    <Resource Include="Images\32\media_stop.png" />
+    <Resource Include="Images\32\modem_earth.png" />
+    <Resource Include="Images\32\package_edit.png" />
+    <Resource Include="Images\32\Paint.png" />
+    <Resource Include="Images\32\Pencil.png" />
+    <Resource Include="Images\32\publish.png" />
+    <Resource Include="Images\32\redo.png" />
+    <Resource Include="Images\32\refresh.png" />
+    <Resource Include="Images\32\safari.png" />
+    <Resource Include="Images\32\scroll_refresh.png" />
+    <Resource Include="Images\32\sitecore.png" />
+    <Resource Include="Images\32\startpage.png" />
+    <Resource Include="Images\32\toolbox.png" />
+    <Resource Include="Images\32\uninstall.png" />
+    <Resource Include="Images\32\upload.png" />
+    <Resource Include="Images\32\wrench.png" />
+    <Resource Include="Images\32\zoom_vertical.png" />
+    <Resource Include="Images\48\add_domain.png" />
+    <Resource Include="Images\48\astrologer.png" />
+    <Resource Include="Images\48\box_into.png" />
+    <Resource Include="Images\48\box_out.png" />
+    <Resource Include="Images\48\chrome.png" />
+    <Resource Include="Images\48\cloud_download.png" />
+    <Resource Include="Images\48\console.png" />
+    <Resource Include="Images\48\copy.png" />
+    <Resource Include="Images\48\cpu.png" />
+    <Resource Include="Images\48\data.png" />
+    <Resource Include="Images\48\data_copy.png" />
+    <Resource Include="Images\48\delete.png" />
+    <Resource Include="Images\48\document_gear.png" />
+    <Resource Include="Images\48\document_text.png" />
+    <Resource Include="Images\48\download.png" />
+    <Resource Include="Images\48\firefox.png" />
+    <Resource Include="Images\48\floppy_disks.png" />
+    <Resource Include="Images\48\folders.png" />
+    <Resource Include="Images\48\folder_network.png" />
+    <Resource Include="Images\48\folder_open.png" />
+    <Resource Include="Images\48\folder_window.png" />
+    <Resource Include="Images\48\garbage.png" />
+    <Resource Include="Images\48\gearwheels.png" />
+    <Resource Include="Images\48\ie.png" />
+    <Resource Include="Images\48\install.png" />
+    <Resource Include="Images\48\log_in.png" />
+    <Resource Include="Images\48\log_out.png" />
+    <Resource Include="Images\48\media_play.png" />
+    <Resource Include="Images\48\media_stop.png" />
+    <Resource Include="Images\48\modem_earth.png" />
+    <Resource Include="Images\48\package_edit.png" />
+    <Resource Include="Images\48\Paint.png" />
+    <Resource Include="Images\48\Pencil.png" />
+    <Resource Include="Images\48\publish.png" />
+    <Resource Include="Images\48\redo.png" />
+    <Resource Include="Images\48\refresh.png" />
+    <Resource Include="Images\48\safari.png" />
+    <Resource Include="Images\48\scroll_refresh.png" />
+    <Resource Include="Images\48\Sitecore.png" />
+    <Resource Include="Images\48\Startpage.png" />
+    <Resource Include="Images\48\toolbox.png" />
+    <Resource Include="Images\48\uninstall.png" />
+    <Resource Include="Images\48\upload.png" />
+    <Resource Include="Images\48\wrench.png" />
+    <Resource Include="Images\48\zoom_vertical.png" />
+    <Resource Include="Images\9\minus.png" />
+    <Resource Include="Images\9\minus_on_hover.png" />
+    <Resource Include="Images\9\plus.png" />
+    <Resource Include="Images\9\plus_on_hover.png" />
+    <Resource Include="Images\16\docker.png" />
+    <Resource Include="Images\16\sitecore_black.png" />
+    <Resource Include="Images\16\iis.png" />
+    <Resource Include="Images\32\docker_logo.png" />
+    <Resource Include="Images\48\docker_logo.png" />
+    <Content Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Dialogs\AddSolrDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\DatabaseQueryExecutionDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\DatabasesDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\DatabasesOperationsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\ContainerVariablesEditor.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\GridEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialogs\RestoreDatabaseDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Delete\Containers\DeleteDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Delete\Delete9Details.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\Containers\ContainerDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\Containers\SelectTag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\Instance9Details.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\Instance9Validation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\Instance9SelectTasks.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Install\InstanceRole9.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\InstanceRole.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="UserControls\Install\InstanceSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\Modules\ConfigurationPackages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\ParametersEditor\Install9ParametersEditor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Install\Validation\ValidationDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Reinstall\Containers\ReinstallDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Reinstall\Reinstall9Confirmation.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Setup\Permissions.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Setup\LocalRepository.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Setup\InstancesRoot.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Setup\ConnectionString.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\MultipleDeletion\SelectInstances.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\Modules\ReorderPackages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\Modules\ModulesDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\Modules\FilePackages.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Install\InstanceDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Import\SetWebsiteBindings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Import\ImportWebsite.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Export\ExportFile.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Export\ExportDatabases.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Download8\Login.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Download8\Downloads.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\ConfirmStepUserControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Backup\ChooseBackup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Backup\BackupSettings.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\AboutDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\HostsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\Solr\SolrDetails.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Dialogs\AdvancedSettingsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Dialogs\ConnectionStringDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Dialogs\SettingsDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\magnifying_glass.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\window.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MIGA.Base\MIGA.Base.csproj">
+      <Project>{CA9339A0-9A7D-4900-839E-F21B7269BDAA}</Project>
+      <Name>MIGA.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIGA.Adapters\MIGA.Adapters.csproj">
+      <Project>{CA40C57A-EF4F-474D-BE8B-98E51AE62C1F}</Project>
+      <Name>MIGA.Adapters</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIGA.ContainerInstaller\MIGA.ContainerInstaller.csproj">
+      <Project>{d9ad90f9-bf6d-4c46-8546-3bed9ff93450}</Project>
+      <Name>MIGA.ContainerInstaller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIGA.Core\MIGA.Core.csproj">
+      <Project>{a124d359-b9bf-44f4-98cb-c40d3d490839}</Project>
+      <Name>MIGA.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIGA.FileSystem\MIGA.FileSystem.csproj">
+      <Project>{02B6C2D7-3083-4DF3-B86D-B6D4728C4EF2}</Project>
+      <Name>MIGA.FileSystem</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIGA.Products\MIGA.Products.csproj">
+      <Project>{BC8B4EE5-C053-42E1-A5BA-07F8C41915A9}</Project>
+      <Name>MIGA.Products</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIGA.Instances\MIGA.Instances.csproj">
+      <Project>{CCA7B157-A743-4A5A-A03B-B6B27CB2BE1C}</Project>
+      <Name>MIGA.Instances</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIGA.Pipelines\MIGA.Pipelines.csproj">
+      <Project>{7A3FEDF8-DF96-4426-AA01-C2D4FD3E68C8}</Project>
+      <Name>MIGA.Pipelines</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIGA.Sitecore9Installer\MIGA.Sitecore9Installer.csproj">
+      <Project>{5c870ab3-89f2-4e24-ae5d-3593ec816495}</Project>
+      <Name>MIGA.Sitecore9Installer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIGA.SitecoreEnvironments\MIGA.SitecoreEnvironments.csproj">
+      <Project>{8A60BF81-02D6-4449-8B9F-572BA4051C82}</Project>
+      <Name>MIGA.SitecoreEnvironments</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MIGA.Tool.Base\MIGA.Tool.Base.csproj">
+      <Project>{EF380B2A-1171-4A9F-96D0-176ABA6CAD74}</Project>
+      <Name>MIGA.Tool.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Sitecore.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

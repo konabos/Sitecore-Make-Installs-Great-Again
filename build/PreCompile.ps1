@@ -34,7 +34,7 @@ Write-Host ""
 
 # update csproj
 Write-Host "> Updating $ProjectFile"
-(Get-Content $ProjectFile).Replace("SIM.Tool.DEV", $Name) | Set-Content $ProjectFile
+(Get-Content $ProjectFile).Replace("MIGA.Tool.DEV", $Name) | Set-Content $ProjectFile
 
 Write-Host "> Done. Updated project file"
 Write-Host ""

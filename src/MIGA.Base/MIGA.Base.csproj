@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CA9339A0-9A7D-4900-839E-F21B7269BDAA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MIGA</RootNamespace>
+    <AssemblyName>MIGA.Base</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <LangVersion>6</LangVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;JETBRAINS_ANNOTATIONS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Ionic.Zip.Reduced, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetZip.Reduced.1.9.1.8\lib\net20\Ionic.Zip.Reduced.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="JetBrains.Annotations, Version=11.1.0.0, Culture=neutral, PublicKeyToken=1010a0d8d6380325, processorArchitecture=MSIL">
+      <HintPath>..\packages\JetBrains.Annotations.11.1.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Diagnostics.Base, Version=2.0.1.171, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Diagnostics.Base.2.0.1.171\lib\Sitecore.Diagnostics.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Sitecore.Diagnostics.Logging, Version=2.0.1.171, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Sitecore.Diagnostics.Logging.2.0.1.171\lib\Sitecore.Diagnostics.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdvancedProperty.cs" />
+    <Compile Include="AdvancedPropertyBase.cs" />
+    <Compile Include="AdvancedSettings.cs" />
+    <Compile Include="AdvancedSettingsManager.cs" />
+    <Compile Include="ApplicationManager.cs" />
+    <Compile Include="CacheManager.cs" />
+    <Compile Include="DataObject.cs" />
+    <Compile Include="DataObjectBase.cs" />
+    <Compile Include="EventHelper.cs" />
+    <Compile Include="Extensions\Extensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="FileSystem\FilePath.cs" />
+    <Compile Include="FileSystem\FileProvider.cs" />
+    <Compile Include="FileSystem\DirectoryProvider.cs" />
+    <Compile Include="FileSystem\FileSystem.cs" />
+    <Compile Include="FileSystem\PathUtils.cs" />
+    <Compile Include="FileSystem\SecurityProvider.cs" />
+    <Compile Include="FileSystem\TempFolder.cs" />
+    <Compile Include="IAdvancedSettingsStorage.cs" />
+    <Compile Include="IProfile.cs" />
+    <Compile Include="IValidateable.cs" />
+    <Compile Include="Loggers\EmptyLogger.cs" />
+    <Compile Include="Loggers\ILogger.cs" />
+    <Compile Include="Loggers\Logger.cs" />
+    <Compile Include="RenderInDataGreedAttribute.cs" />
+    <Compile Include="Safe.cs" />
+    <Compile Include="Parameters.cs" />
+    <Compile Include="Pipelines\Pipeline.cs" />
+    <Compile Include="Pipelines\PipelineController.cs" />
+    <Compile Include="Pipelines\PipelineDefinition.cs" />
+    <Compile Include="Pipelines\PipelineManager.cs" />
+    <Compile Include="Pipelines\Processors\MultipleProcessorDefinition.cs" />
+    <Compile Include="Pipelines\Processors\Processor.cs" />
+    <Compile Include="Pipelines\Processors\ProcessorArgs.cs" />
+    <Compile Include="Pipelines\Processors\ProcessorDefinition.cs" />
+    <Compile Include="Pipelines\Processors\ProcessorHive.cs" />
+    <Compile Include="Pipelines\Processors\ProcessorManager.cs" />
+    <Compile Include="Pipelines\Processors\ProcessorState.cs" />
+    <Compile Include="Pipelines\Processors\SingleProcessorDefinition.cs" />
+    <Compile Include="Pipelines\Step.cs" />
+    <Compile Include="Pipelines\StepDefinition.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\BResources.Designer.cs">
+      <DependentUpon>BResources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="ReflectionUtil.cs" />
+    <Compile Include="Services\ConnectionString.cs" />
+    <Compile Include="Services\SqlConnectionString.cs" />
+    <Compile Include="SolrDefinition.cs" />
+    <Compile Include="VersionToSolr.cs" />
+    <Compile Include="WebRequestHelper.cs" />
+    <Compile Include="XmlBasedAdvancedSettingsStorage.cs" />
+    <Compile Include="AppConfigSectionHandler.cs" />
+    <Compile Include="XmlDocumentEx.cs" />
+    <Compile Include="XmlElementEx.cs" />
+    <Compile Include="FileSystem\ZipProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\BResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>BResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Extensions\DirectoryInfo\" />
+    <Folder Include="Extensions\FileInfo\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

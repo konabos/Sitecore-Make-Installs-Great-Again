@@ -1,7 +1,7 @@
-Sitecore Instance Manager (SIM 1.4)
+Sitecore Make Installs Great Again (MIGA 1.4)
 
 1. Fast Start
-You can start with opening the solution file, choosing the SIM.Tool project as startup one and hit F5
+You can start with opening the solution file, choosing the MIGA.Tool project as startup one and hit F5
 
 2. Source code 
 Application source code is divided into two groups: Core and UI. The core functionality is abstract enough to be invoked by any type of user interface like web service, cli or win32 gui. The UI functionality may use UI API so it may be impossible to reuse it in different environment. 

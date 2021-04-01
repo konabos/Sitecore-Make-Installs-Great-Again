@@ -74,7 +74,7 @@ Get-Content stdout.txt | Write-Host
 Get-Content stderr.txt | Write-Host
 
 # workaround to replace some wrong values that I have no idea they came from and why + add a couple things mage doesn't seem to support (SupportUrl)
-(Get-Content $ApplicationFile).Replace("asmv2:product=`"SIM`"", "asmv2:product=`"$Title`" asmv2:supportUrl=`"$SupportUrl`"").Replace("name=`"SIM.app`" version=`"1.0.0.0`"", "name=`"$ApplicationFileName`" version=`"$Version`"").Replace("<expiration maximumAge=`"0`" unit=`"days`" />", "<expiration maximumAge=`"0`" unit=`"days`" />") | Set-Content $ApplicationFile
+(Get-Content $ApplicationFile).Replace("asmv2:product=`"MIGA`"", "asmv2:product=`"$Title`" asmv2:supportUrl=`"$SupportUrl`"").Replace("name=`"MIGA.app`" version=`"1.0.0.0`"", "name=`"$ApplicationFileName`" version=`"$Version`"").Replace("<expiration maximumAge=`"0`" unit=`"days`" />", "<expiration maximumAge=`"0`" unit=`"days`" />") | Set-Content $ApplicationFile
 
 # sign application file
 Write-Host "> tools\mage.exe -Sign `"$ApplicationFile`" -CertFile `"$CertificatePath`" -Password `"$CertificatePassword`""

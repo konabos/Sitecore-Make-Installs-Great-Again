@@ -1,14 +1,14 @@
 ## Simple validator:
 
 Simple validator allows checks in a context of a single task. For example check that dns name is valid.
-1. Create a new class derived from the `SIM.Sitecore9Installer.Validation.Validators.BaseValidator`
+1. Create a new class derived from the `MIGA.Sitecore9Installer.Validation.Validators.BaseValidator`
 2. Implement `IEnumerable<ValidationResult> GetErrorsForTask(Task task, IEnumerable<InstallParam> paramsToValidate)` method. Implementation details are explained later.
 3. Add validator definition to the `GlobalParamsConfig\Validators.json` file:
 ```
     "ValidatorDefinitions": [   
     {
       "Name": "HostNameValidator",
-      "Type": "SIM.Sitecore9Installer.Validation.Validators.HostNameValidator",
+      "Type": "MIGA.Sitecore9Installer.Validation.Validators.HostNameValidator",
       "Data": { "ParamNames": "DnsName" }
     }
   ]
@@ -61,7 +61,7 @@ Simple validator allows checks in a context of a single task. For example check 
 ## Complex validator
 
 This approach allows for performing cross-task checks. For example, one can check that host of the reporting instance corresponds to the reporting services of other instances.
-1. Create a class that implements `SIM.Sitecore9Installer.Validation.IValidator`.
+1. Create a class that implements `MIGA.Sitecore9Installer.Validation.IValidator`.
 2. Implement `IEnumerable<ValidationResult> Evaluate(IEnumerable<Task> tasks)` and `Dictionary<string,string> Data { get; set; }`. 
 Data must not return null.
 3. Perform steps 3-6 from the simple validator part.

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package >
+	<metadata>
+		<id>MIGA.Telemetry</id>
+		<version>1.1.0-alpha</version>
+		<title>MIGA.Telemetry</title>
+		<authors>AndreyFilchenkov</authors>
+		<projectUrl>https://github.com/Sitecore/Sitecore-Instance-Manager/tree/master/src</projectUrl>
+		<requireLicenseAcceptance>false</requireLicenseAcceptance>
+		<description>'MIGA.Telemetry' is used to track Sitecore Instance Manager utilisation statistics</description>
+		<releaseNotes>1.1.0-alpha</releaseNotes>
+		<dependencies>
+			<dependency id="KB.Telemetry" version="1.0.2-alpha" />
+		</dependencies>
+		<copyright>Copyright 2020</copyright>
+		<tags>Sitecore Support</tags>
+	</metadata>
+	<files>
+		<file src="bin\Release\MIGA.Telemetry*.dll" target="lib/net461" />
+		<file src="bin\Release\MIGA.Telemetry*.pdb" target="lib/net461" />
+	</files>
+</package>

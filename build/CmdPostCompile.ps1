@@ -25,7 +25,7 @@ DIR "$BuildFolder" -Filter *.pdb -Recurse | Remove-Item
 $ReleaseFolder = "$OutputFolder"
 $ApplicationFileName = "$Name.zip"
 $ApplicationFile = "$OutputFolder\$ApplicationFileName"
-$ExecutableFileName = "SIM.exe"
+$ExecutableFileName = "MIGA.exe"
 $ExecutableFile = "$BuildFolder\$ExecutableFileName"
 
 # create parent folder of $ReleaseFolder
